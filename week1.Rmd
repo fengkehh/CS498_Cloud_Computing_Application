@@ -1,0 +1,146 @@
+---
+title: "Week1"
+author: "Keh-Harng Feng"
+date: "January 3, 2018"
+output: bookdown::pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Cloud Computing
+
+Why Cloud?
+
+Using your own information systems:
+
+1. Need capital investment (to buy hardware)
+
+2. Heavy fixed costs (housing, air-conditioning etc)
+
+3. Redundant expenditures (pay for admins, ITs, programmers, etc)
+
+4. Energy costs.
+
+5. Unreliable hardware (frequent failures)
+
+6. High levels of overcapacity (not utilizing the hardware/labor all the time).
+
+Overall, not sustainable.
+
+## Cloud Service Delivery Models
+
+- Infrastructure as Service (IaaS)
+
+    - Rent processing, storage, network (ie: cloud provides computer hardware)
+    
+    - Capacity and other fundamental computing resources.
+    
+    - Ex: Amazon EC2, S3
+    
+- Platform as a Service (PaaS)
+
+    - Deploy customer-created applications to a cloud.
+    
+    - Cloud provides operating system (ie: Google's App Engine)
+    
+- Software as a Service (SaaS)
+
+    - Cloud provides software application over a network to users.
+    
+    - Ex: Gmail, Google Docs.
+    
+## Synergy
+
+The rise of virtualization and big data are synergizing with cloud computing.
+
+**Big data:**
+
+- Data collection too large to transmit economically over Internet (petabyte range)
+
+- Computation is data intensive.
+
+    - Lots of Disks, Networks and CPUS.
+    
+    - Overhead of maintaining cyber infrastructure is expensive.
+    
+    - Users buy Big Data services from Clouds to share overhead.
+    
+- Goals: Easy to write programs, fast turn around.
+
+- MapReduce - Hadoop, PIG, HDFS, HBase
+
+## Cloudonomics
+
+- Cloud services don't need to be cheaper to be economic!
+
+- Consider a car
+
+    - Buy or lease for $10 per day.
+    
+    - Rent a car for $45 a day.
+    
+    - If you need a car for 2 days in a trip, buying would be much more costly than renting.
+    
+    - It depends on the **demand**.
+    
+**When is cloud cheaper?**
+
+If the demand is highly variable (ie: peak demand is much larger than average demand), then cloud is often more economical.
+
+In practice demands are often highly spiky (ie: news stories, marketing promotions, product launches, Internet flash floods, tax season, Christmas shopping, etc).
+
+Often a hybrid model is the best:
+
+- You own a car for daily commute, and rent a car when traveling or when you need a van to move.
+
+- Key factor is again the ratio of peak to average demand.
+
+- But we should also consider other costs.
+
+    - Network cost (both fixed costs and usage costs).
+    
+    - Interoperability overhead.
+    
+    - Consider Reliability, accessibility etc.
+    
+So for a company, own part of the infrastructure for the average demand, and be prepared to utilize cloud for peak demand.
+
+### Common Infrastructure
+
+Check 1.1.4 again.
+
+- For infrastructure built to peak requirements: try to allow multiplex (ie: use the infrastructure for other tasks if not at peak demand). This allows lower cost per delivered resource than unconsolidated workloads.
+
+- For infrastructure built to less than peak: multiplexing reduce unserved demand over the capacity.
+
+## Big Data
+
+- A collection of data sets so large and complex, it's impossible to process it on one computer with the usual databases and tools.
+
+- Because of its size and complexity, Big Data is hard to capture, store, copy, delete (privacy issues), search, share, analyze and visualize.
+
+Big Data represents information assets characterized by
+
+1. High Volume
+
+2. High Velocity
+
+3. High Variety
+
+# Software Defined Architecture
+
+- Cloud privides services, service orchestration and provisioning.
+
+- A cloud may provide IAAS, PAAS, SAAS and have both internal and external API.
+
+- The mechanisms and concept of providing services, orchestration and provisioning is called a Software Defined Architecture
+
+- A cloud may contain other software defined entities:
+
+    - software defined network
+    
+    - software defined storage
+    
+    - software defined compute
