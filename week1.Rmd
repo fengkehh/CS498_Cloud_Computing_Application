@@ -2,11 +2,13 @@
 title: "Week1"
 author: "Keh-Harng Feng"
 date: "January 3, 2018"
-output: bookdown::pdf_document
+output: bookdown::pdf_book
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+library(png)
+library(grid)
 ```
 
 # Cloud Computing
@@ -144,3 +146,159 @@ Big Data represents information assets characterized by
     - software defined storage
     
     - software defined compute
+    
+- The point of SDA is to increase flexibility and job multiplexing -> dynamic load balancing etc.
+
+- Virtulization (ie: containers) can be used to achieve this.
+
+# Cloud Services
+
+```{r}
+png <- readPNG("./png/service_types.png")
+grid.raster(png)
+```
+
+```{r}
+png <- readPNG("./png/service_types2.png")
+grid.raster(png)
+```
+
+- Infrastructure as a Service (IaaS): basic compute and storage resources
+
+    - On-demand servers
+    
+    - Amazon EC2, VMWare vCloud
+    
+- Platform as a Service (PaaS): cloud application infrastructure
+
+    - On-demand application-hosting environment
+    
+    - Eg: Google AppEngine, Salesforce.come, Windows Azure, Amazon
+    
+- Software as a Service (SaaS): cloud applications
+
+    - On-demand applications
+    
+    - Eg: GMail, Microsoft Office Web Companions
+    
+## Platform as a Service (PaaS)
+
+- PaaS is a cloud computing service that offers a platform for users to run applications on the cloud.
+
+- It is a level above Infrastructure as a service (IaaS) because unlike IaaS, PaaS does not require users to develop their own operating system environment.
+
+- Middle ground between SaaS and IaaS
+
+- Development platform: customers use to develop applications that benefit from the scalability of the cloud without fully developing their own solution using an IaaS provider.
+
+- Offers an application development platform that will automatically scale with demand.
+
+**NIST Definition of PaaS**:
+
+"The capability provided to the consumer is to deploy onto the cloud infrastructure consumer-created or acquired applications created using programming langauges, libraries, services and tools supported by the provider. The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, or storage, but has control over the deployed applications and possibly configuration settings for the application-hosting environment."
+
+Examples: Google AppEngine, Windows Azure
+
+**Windows Azure**:
+
+- Provides 
+
+    - Compute (web, worker and VM role)
+    
+    - Storage (Blob, Table, Queue and Azure SQL server)
+    
+    - Application fabric (service bus, access control, in the future -> cache, integration and composite)
+    
+**Most Cost Effective!**
+
+PaaS can be better for costs than IaaS, because systems are optimized to run applications efficiently.
+
+IaaS may only provide hardware and thus, clients must be in charge of load balancing, networking etc.
+
+### Multi-tenancy
+
+PaaS is better suited for multi-tenancy (many users may share the same physical computer and database). This is because 
+
+1. PaaS provider optimizes its infrastructure for use by many providers.
+
+2. An IaaS may provide each user with his own VM, this creates a clear separation of resources. In PaaS users may share the same machine, database etc.
+
+### Vendor Lock-in
+
+- PaaS may lock in applications by requiring users to develop apps using proprietary interfaces and languages.
+
+- This means that it may be difficult for users to go to another vendor to host their app.
+
+- Businesses may risk their future on the dependability of the PaaS.
+
+### Development Tools
+
+- Often a PaaS will offer browser-based development tools
+
+- In this way, developers can create their own applications online.
+
+- Ease of deployment: the platform takes care of the scaling for you.
+
+- As a developer, your objective is to create an application in the quickest, most effective way possible -> don't create applications using convoluted methods that might take a long time to complete.
+
+- The user sees the end product, not the development process.
+
+### PaaS vs IaaS
+
+- When you use the Cloud, remember that your decisions have long-term consequences
+
+- If you choose to use a PaaS and get your application vendor locked in, then your business may fail if the PaaS greatly increases the vendor's prices (you will not be able to move to another Cloud since your app cannot be easily migrated to somewhere else).
+
+- An app that is used to fulfill a temporary need may be handled by a PaaS solution quickly.
+
+- An app that needs to be deployed quickly may be developed faster by a PaaS
+
+- If your software team is small, it may be better to develop a PaaS and let the PaaS provider handle the OS and networking for your team.
+
+## Infrastructure as a Service (IaaS)
+
+Examples:
+
+- Xen
+
+- XenCloud
+
+- OpenStack
+
+**Xen and the Linux Kernel Distributions**
+
+- Xen was initially a University research project.
+
+- Invasive changes to the kernel to run Linux as a [paravirtualized](http://searchservervirtualization.techtarget.com/definition/paravirtualization) guest.
+
+- Even more changes to run Linux as [Dom0](https://wiki.xenproject.org/wiki/Dom0) -> required to make sure VM IOs are independent of each other.
+
+- Xen support in the Linux kernel; no upstream.
+
+- Great maintenance effort on distributions.
+
+- Risk of distributions dropping Xen support.
+
+- Hard to use.
+
+**Mirantis Fuel and OpenStack Architecture**
+
+**Mirantis**:
+
+```{r}
+png <- readPNG("./png/mirantis.png")
+grid.raster(png)
+```
+
+Dashboard: user control interface.
+
+Mirantis brings up a Fuel controller.
+
+The Fuel controller allows one to bring up OpenStack controller, networks, compute servers and storage.
+
+**OpenStack**:
+
+```{r}
+png <- readPNG("./png/openstack.png")
+grid.raster(png)
+```
